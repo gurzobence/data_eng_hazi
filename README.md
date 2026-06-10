@@ -27,6 +27,6 @@ A rendszer az alábbi adatinfrastrukturális elemekre épül:
 ### 2. A projekt klónozása és indítása
 Nyiss egy terminált, és futtasd az alábbi parancsokat:
 ```bash
-git clone <IDE_ÍRD_A_GITHUB_REPO_LINKJED>
+git clone https://github.com/gurzobence/data_eng_hazi
 cd data_engineering_hazi
 docker-compose up -d
