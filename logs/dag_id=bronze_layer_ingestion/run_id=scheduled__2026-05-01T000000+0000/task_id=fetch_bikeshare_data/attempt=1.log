@@ -1,0 +1,21 @@
+[2026-06-09T23:10:42.329+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-09T23:10:42.374+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bronze_layer_ingestion.fetch_bikeshare_data scheduled__2026-05-01T00:00:00+00:00 [queued]>
+[2026-06-09T23:10:42.386+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bronze_layer_ingestion.fetch_bikeshare_data scheduled__2026-05-01T00:00:00+00:00 [queued]>
+[2026-06-09T23:10:42.387+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-06-09T23:10:42.409+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_bikeshare_data> on 2026-05-01 00:00:00+00:00
+[2026-06-09T23:10:42.426+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'bronze_layer_ingestion', 'fetch_bikeshare_data', 'scheduled__2026-05-01T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmp852_9_7p']
+[2026-06-09T23:10:42.432+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask fetch_bikeshare_data
+[2026-06-09T23:10:42.435+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=198) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-09T23:10:42.437+0000] {standard_task_runner.py:63} INFO - Started process 199 to run task
+[2026-06-09T23:10:42.617+0000] {task_command.py:426} INFO - Running <TaskInstance: bronze_layer_ingestion.fetch_bikeshare_data scheduled__2026-05-01T00:00:00+00:00 [running]> on host b4e2a1c20138
+[2026-06-09T23:10:42.972+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='bronze_layer_ingestion' AIRFLOW_CTX_TASK_ID='fetch_bikeshare_data' AIRFLOW_CTX_EXECUTION_DATE='2026-05-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-05-01T00:00:00+00:00'
+[2026-06-09T23:10:42.976+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-09T23:10:43.072+0000] {logging_mixin.py:188} INFO - Bikeshare ZIP letöltése innen: https://s3.amazonaws.com/capitalbikeshare-data/202401-capitalbikeshare-tripdata.zip
+[2026-06-09T23:10:46.584+0000] {logging_mixin.py:188} INFO - Feldolgozás és feltöltés: bikeshare/202401-capitalbikeshare-tripdata.csv
+[2026-06-09T23:10:46.997+0000] {logging_mixin.py:188} INFO - Bikeshare adatok feltöltése sikeres!
+[2026-06-09T23:10:47.001+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-06-09T23:10:47.002+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-09T23:10:47.011+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=bronze_layer_ingestion, task_id=fetch_bikeshare_data, run_id=scheduled__2026-05-01T00:00:00+00:00, execution_date=20260501T000000, start_date=20260609T231042, end_date=20260609T231047
+[2026-06-09T23:10:47.056+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-06-09T23:10:47.069+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-09T23:10:47.073+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

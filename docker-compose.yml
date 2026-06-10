@@ -8,12 +8,14 @@ x-airflow-common:
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    # Itt adjuk hozzá a dbt-duckdb-t a meglévő csomagok mellé
+    _PIP_ADDITIONAL_REQUIREMENTS: "boto3 requests dbt-duckdb"
   volumes:
     # Airflow alap mappák
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
-    # Ezek lesznek a saját mappáid a transzformációhoz és a DuckDB-hez
+    # Saját mappák a transzformációhoz és a DuckDB-hez
     - ./data:/opt/airflow/data 
     - ./dbt:/opt/airflow/dbt
   depends_on:
@@ -39,7 +41,7 @@ services:
   minio:
     image: minio/minio
     ports:
-      - "9000:9000" # API port (ezzel kommunikál majd a Python)
+      - "9000:9000" # API port
       - "9001:9001" # Webes UI port
     environment:
       MINIO_ROOT_USER: minioadmin
@@ -48,7 +50,7 @@ services:
     volumes:
       - minio-data:/data
 
-  # 3. Airflow Init (Csak egyszer fut le, inicializálja az adatbázist)
+  # 3. Airflow Init (Adatbázis inicializálás)
   airflow-init:
     <<: *airflow-common
     command: version
@@ -62,7 +64,7 @@ services:
       postgres:
         condition: service_healthy
 
-  # 4. Airflow Webserver (A grafikus felület)
+  # 4. Airflow Webserver (UI)
   airflow-webserver:
     <<: *airflow-common
     command: webserver
@@ -72,7 +74,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
-  # 5. Airflow Scheduler (Ő felel a DAG-ok futtatásáért)
+  # 5. Airflow Scheduler (DAG futtatás)
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
@@ -81,5 +83,5 @@ services:
         condition: service_completed_successfully
 
 volumes:
-  postgres-db-volume: # Perzisztens kötet a Postgresnek
-  minio-data:         # Perzisztens kötet a MinIO-nak
+  postgres-db-volume:
+  minio-data:

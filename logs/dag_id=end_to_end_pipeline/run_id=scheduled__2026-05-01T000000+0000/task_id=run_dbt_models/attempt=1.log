@@ -1,0 +1,272 @@
+[2026-06-10T00:29:01.030+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-10T00:29:01.058+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: end_to_end_pipeline.run_dbt_models scheduled__2026-05-01T00:00:00+00:00 [queued]>
+[2026-06-10T00:29:01.066+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: end_to_end_pipeline.run_dbt_models scheduled__2026-05-01T00:00:00+00:00 [queued]>
+[2026-06-10T00:29:01.067+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-06-10T00:29:01.078+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_dbt_models> on 2026-05-01 00:00:00+00:00
+[2026-06-10T00:29:01.085+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'end_to_end_pipeline', 'run_dbt_models', 'scheduled__2026-05-01T00:00:00+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmpv7gc96_1']
+[2026-06-10T00:29:01.088+0000] {standard_task_runner.py:91} INFO - Job 15: Subtask run_dbt_models
+[2026-06-10T00:29:01.088+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=825) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-10T00:29:01.089+0000] {standard_task_runner.py:63} INFO - Started process 826 to run task
+[2026-06-10T00:29:01.141+0000] {task_command.py:426} INFO - Running <TaskInstance: end_to_end_pipeline.run_dbt_models scheduled__2026-05-01T00:00:00+00:00 [running]> on host 42a5f442ff59
+[2026-06-10T00:29:01.212+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='end_to_end_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_models' AIRFLOW_CTX_EXECUTION_DATE='2026-05-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-05-01T00:00:00+00:00'
+[2026-06-10T00:29:01.213+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-10T00:29:01.223+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-10T00:29:01.224+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt && dbt run']
+[2026-06-10T00:29:01.233+0000] {subprocess.py:86} INFO - Output:
+[2026-06-10T00:29:03.235+0000] {subprocess.py:93} INFO - [0m00:29:03  Running with dbt=1.11.11
+[2026-06-10T00:29:03.512+0000] {subprocess.py:93} INFO - [0m00:29:03  Registered adapter: duckdb=1.10.1
+[2026-06-10T00:29:03.738+0000] {subprocess.py:93} INFO - [0m00:29:03  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-06-10T00:29:03.738+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2026-06-10T00:29:03.739+0000] {subprocess.py:93} INFO - - models.bikeshare_dbt.marts
+[2026-06-10T00:29:03.852+0000] {subprocess.py:93} INFO - [0m00:29:03  Found 6 models, 485 macros
+[2026-06-10T00:29:03.856+0000] {subprocess.py:93} INFO - [0m00:29:03
+[2026-06-10T00:29:03.857+0000] {subprocess.py:93} INFO - [0m00:29:03  Concurrency: 1 threads (target='dev')
+[2026-06-10T00:29:03.858+0000] {subprocess.py:93} INFO - [0m00:29:03
+[2026-06-10T00:29:03.942+0000] {subprocess.py:93} INFO - [0m00:29:03
+[2026-06-10T00:29:03.943+0000] {subprocess.py:93} INFO - [0m00:29:03  Finished running  in 0 hours 0 minutes and 0.08 seconds (0.08s).
+[2026-06-10T00:29:03.944+0000] {subprocess.py:93} INFO - [0m00:29:03  Encountered an error:
+[2026-06-10T00:29:03.944+0000] {subprocess.py:93} INFO - IO Error: Could not set lock on file "/opt/***/data/warehouse.duckdb": Conflicting lock is held in /usr/local/bin/python3.12 (PID 824). See also https://duckdb.org/docs/stable/connect/concurrency
+[2026-06-10T00:29:03.955+0000] {subprocess.py:93} INFO - [0m00:29:03  Traceback (most recent call last):
+[2026-06-10T00:29:03.955+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/connections.py", line 95, in exception_handler
+[2026-06-10T00:29:03.956+0000] {subprocess.py:93} INFO -     yield
+[2026-06-10T00:29:03.956+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 147, in add_query
+[2026-06-10T00:29:03.957+0000] {subprocess.py:93} INFO -     cursor = connection.handle.cursor()
+[2026-06-10T00:29:03.957+0000] {subprocess.py:93} INFO -              ^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.957+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/contracts/connection.py", line 96, in handle
+[2026-06-10T00:29:03.957+0000] {subprocess.py:93} INFO -     self._handle.resolve(self)
+[2026-06-10T00:29:03.958+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/contracts/connection.py", line 120, in resolve
+[2026-06-10T00:29:03.958+0000] {subprocess.py:93} INFO -     return self.opener(connection)
+[2026-06-10T00:29:03.958+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.959+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/connections.py", line 53, in open
+[2026-06-10T00:29:03.959+0000] {subprocess.py:93} INFO -     connection.handle = cls._ENV.handle()
+[2026-06-10T00:29:03.959+0000] {subprocess.py:93} INFO -                         ^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.960+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/environments/local.py", line 75, in handle
+[2026-06-10T00:29:03.960+0000] {subprocess.py:93} INFO -     self.conn = self.initialize_db(self.creds, self._plugins)
+[2026-06-10T00:29:03.960+0000] {subprocess.py:93} INFO -                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.960+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/environments/__init__.py", line 159, in initialize_db
+[2026-06-10T00:29:03.961+0000] {subprocess.py:93} INFO -     conn = duckdb.connect(creds.path, read_only=False, config=config)
+[2026-06-10T00:29:03.961+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.961+0000] {subprocess.py:93} INFO - _duckdb.IOException: IO Error: Could not set lock on file "/opt/***/data/warehouse.duckdb": Conflicting lock is held in /usr/local/bin/python3.12 (PID 824). See also https://duckdb.org/docs/stable/connect/concurrency
+[2026-06-10T00:29:03.961+0000] {subprocess.py:93} INFO - 
+[2026-06-10T00:29:03.962+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2026-06-10T00:29:03.962+0000] {subprocess.py:93} INFO - 
+[2026-06-10T00:29:03.962+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-06-10T00:29:03.962+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/connections.py", line 95, in exception_handler
+[2026-06-10T00:29:03.963+0000] {subprocess.py:93} INFO -     yield
+[2026-06-10T00:29:03.963+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 1357, in execute_macro
+[2026-06-10T00:29:03.963+0000] {subprocess.py:93} INFO -     result = macro_function(**kwargs)
+[2026-06-10T00:29:03.963+0000] {subprocess.py:93} INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.964+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/clients/jinja.py", line 427, in __call__
+[2026-06-10T00:29:03.964+0000] {subprocess.py:93} INFO -     return self.call_macro(*args, **kwargs)
+[2026-06-10T00:29:03.964+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.964+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/clients/jinja.py", line 395, in call_macro
+[2026-06-10T00:29:03.965+0000] {subprocess.py:93} INFO -     return macro(*args, **kwargs)
+[2026-06-10T00:29:03.965+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.965+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 770, in __call__
+[2026-06-10T00:29:03.966+0000] {subprocess.py:93} INFO -     return self._invoke(arguments, autoescape)
+[2026-06-10T00:29:03.966+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.966+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 784, in _invoke
+[2026-06-10T00:29:03.967+0000] {subprocess.py:93} INFO -     rv = self._func(*arguments)
+[2026-06-10T00:29:03.967+0000] {subprocess.py:93} INFO -          ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.967+0000] {subprocess.py:93} INFO -   File "<template>", line 20, in macro
+[2026-06-10T00:29:03.968+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/sandbox.py", line 401, in call
+[2026-06-10T00:29:03.968+0000] {subprocess.py:93} INFO -     return __context.call(__obj, *args, **kwargs)
+[2026-06-10T00:29:03.968+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.969+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 303, in call
+[2026-06-10T00:29:03.969+0000] {subprocess.py:93} INFO -     return __obj(*args, **kwargs)
+[2026-06-10T00:29:03.969+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.969+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/clients/jinja.py", line 82, in __call__
+[2026-06-10T00:29:03.970+0000] {subprocess.py:93} INFO -     return self.call_macro(*args, **kwargs)
+[2026-06-10T00:29:03.970+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.970+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/clients/jinja.py", line 395, in call_macro
+[2026-06-10T00:29:03.971+0000] {subprocess.py:93} INFO -     return macro(*args, **kwargs)
+[2026-06-10T00:29:03.971+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.971+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 770, in __call__
+[2026-06-10T00:29:03.971+0000] {subprocess.py:93} INFO -     return self._invoke(arguments, autoescape)
+[2026-06-10T00:29:03.972+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.972+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 784, in _invoke
+[2026-06-10T00:29:03.972+0000] {subprocess.py:93} INFO -     rv = self._func(*arguments)
+[2026-06-10T00:29:03.972+0000] {subprocess.py:93} INFO -          ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.973+0000] {subprocess.py:93} INFO -   File "<template>", line 50, in macro
+[2026-06-10T00:29:03.973+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/sandbox.py", line 401, in call
+[2026-06-10T00:29:03.973+0000] {subprocess.py:93} INFO -     return __context.call(__obj, *args, **kwargs)
+[2026-06-10T00:29:03.973+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.974+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 303, in call
+[2026-06-10T00:29:03.974+0000] {subprocess.py:93} INFO -     return __obj(*args, **kwargs)
+[2026-06-10T00:29:03.974+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.974+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/clients/jinja.py", line 82, in __call__
+[2026-06-10T00:29:03.975+0000] {subprocess.py:93} INFO -     return self.call_macro(*args, **kwargs)
+[2026-06-10T00:29:03.975+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.975+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/clients/jinja.py", line 395, in call_macro
+[2026-06-10T00:29:03.975+0000] {subprocess.py:93} INFO -     return macro(*args, **kwargs)
+[2026-06-10T00:29:03.976+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.976+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 770, in __call__
+[2026-06-10T00:29:03.976+0000] {subprocess.py:93} INFO -     return self._invoke(arguments, autoescape)
+[2026-06-10T00:29:03.977+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.977+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 784, in _invoke
+[2026-06-10T00:29:03.977+0000] {subprocess.py:93} INFO -     rv = self._func(*arguments)
+[2026-06-10T00:29:03.977+0000] {subprocess.py:93} INFO -          ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.978+0000] {subprocess.py:93} INFO -   File "<template>", line 33, in macro
+[2026-06-10T00:29:03.978+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/sandbox.py", line 401, in call
+[2026-06-10T00:29:03.978+0000] {subprocess.py:93} INFO -     return __context.call(__obj, *args, **kwargs)
+[2026-06-10T00:29:03.978+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.979+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 303, in call
+[2026-06-10T00:29:03.979+0000] {subprocess.py:93} INFO -     return __obj(*args, **kwargs)
+[2026-06-10T00:29:03.979+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.979+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/clients/jinja.py", line 82, in __call__
+[2026-06-10T00:29:03.980+0000] {subprocess.py:93} INFO -     return self.call_macro(*args, **kwargs)
+[2026-06-10T00:29:03.980+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.980+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/clients/jinja.py", line 395, in call_macro
+[2026-06-10T00:29:03.980+0000] {subprocess.py:93} INFO -     return macro(*args, **kwargs)
+[2026-06-10T00:29:03.981+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.981+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 770, in __call__
+[2026-06-10T00:29:03.981+0000] {subprocess.py:93} INFO -     return self._invoke(arguments, autoescape)
+[2026-06-10T00:29:03.982+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.982+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 784, in _invoke
+[2026-06-10T00:29:03.982+0000] {subprocess.py:93} INFO -     rv = self._func(*arguments)
+[2026-06-10T00:29:03.982+0000] {subprocess.py:93} INFO -          ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.983+0000] {subprocess.py:93} INFO -   File "<template>", line 52, in macro
+[2026-06-10T00:29:03.983+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/sandbox.py", line 401, in call
+[2026-06-10T00:29:03.983+0000] {subprocess.py:93} INFO -     return __context.call(__obj, *args, **kwargs)
+[2026-06-10T00:29:03.983+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.984+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/jinja2/runtime.py", line 303, in call
+[2026-06-10T00:29:03.984+0000] {subprocess.py:93} INFO -     return __obj(*args, **kwargs)
+[2026-06-10T00:29:03.984+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.984+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/record.py", line 538, in record_replay_wrapper
+[2026-06-10T00:29:03.985+0000] {subprocess.py:93} INFO -     return func_to_record(*call_args, **kwargs)
+[2026-06-10T00:29:03.985+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.985+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 508, in execute
+[2026-06-10T00:29:03.985+0000] {subprocess.py:93} INFO -     return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+[2026-06-10T00:29:03.986+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.986+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/connections.py", line 130, in execute
+[2026-06-10T00:29:03.986+0000] {subprocess.py:93} INFO -     return super().execute(sql, auto_begin, fetch, limit)
+[2026-06-10T00:29:03.987+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.987+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 219, in execute
+[2026-06-10T00:29:03.987+0000] {subprocess.py:93} INFO -     _, cursor = self.add_query(sql, auto_begin)
+[2026-06-10T00:29:03.988+0000] {subprocess.py:93} INFO -                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.988+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/sql/connections.py", line 131, in add_query
+[2026-06-10T00:29:03.989+0000] {subprocess.py:93} INFO -     with self.exception_handler(sql):
+[2026-06-10T00:29:03.989+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+[2026-06-10T00:29:03.989+0000] {subprocess.py:93} INFO -     self.gen.throw(value)
+[2026-06-10T00:29:03.990+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/connections.py", line 102, in exception_handler
+[2026-06-10T00:29:03.990+0000] {subprocess.py:93} INFO -     self.rollback_if_open()
+[2026-06-10T00:29:03.990+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/base/connections.py", line 125, in rollback_if_open
+[2026-06-10T00:29:03.991+0000] {subprocess.py:93} INFO -     if conn is not None and conn.handle and conn.transaction_open:
+[2026-06-10T00:29:03.991+0000] {subprocess.py:93} INFO -                             ^^^^^^^^^^^
+[2026-06-10T00:29:03.991+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/contracts/connection.py", line 96, in handle
+[2026-06-10T00:29:03.992+0000] {subprocess.py:93} INFO -     self._handle.resolve(self)
+[2026-06-10T00:29:03.992+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/contracts/connection.py", line 120, in resolve
+[2026-06-10T00:29:03.992+0000] {subprocess.py:93} INFO -     return self.opener(connection)
+[2026-06-10T00:29:03.993+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.994+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/connections.py", line 53, in open
+[2026-06-10T00:29:03.994+0000] {subprocess.py:93} INFO -     connection.handle = cls._ENV.handle()
+[2026-06-10T00:29:03.995+0000] {subprocess.py:93} INFO -                         ^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.995+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/environments/local.py", line 75, in handle
+[2026-06-10T00:29:03.995+0000] {subprocess.py:93} INFO -     self.conn = self.initialize_db(self.creds, self._plugins)
+[2026-06-10T00:29:03.996+0000] {subprocess.py:93} INFO -                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.996+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/environments/__init__.py", line 159, in initialize_db
+[2026-06-10T00:29:03.996+0000] {subprocess.py:93} INFO -     conn = duckdb.connect(creds.path, read_only=False, config=config)
+[2026-06-10T00:29:03.996+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.997+0000] {subprocess.py:93} INFO - _duckdb.IOException: IO Error: Could not set lock on file "/opt/***/data/warehouse.duckdb": Conflicting lock is held in /usr/local/bin/python3.12 (PID 824). See also https://duckdb.org/docs/stable/connect/concurrency
+[2026-06-10T00:29:03.997+0000] {subprocess.py:93} INFO - 
+[2026-06-10T00:29:03.997+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2026-06-10T00:29:03.998+0000] {subprocess.py:93} INFO - 
+[2026-06-10T00:29:03.998+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-06-10T00:29:03.998+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 182, in wrapper
+[2026-06-10T00:29:03.999+0000] {subprocess.py:93} INFO -     result, success = func(*args, **kwargs)
+[2026-06-10T00:29:03.999+0000] {subprocess.py:93} INFO -                       ^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:03.999+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 128, in wrapper
+[2026-06-10T00:29:04.999+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-06-10T00:29:04.000+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.000+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 276, in wrapper
+[2026-06-10T00:29:04.000+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-06-10T00:29:04.001+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.001+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 321, in wrapper
+[2026-06-10T00:29:04.001+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-06-10T00:29:04.002+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.002+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 391, in wrapper
+[2026-06-10T00:29:04.002+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-06-10T00:29:04.002+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.003+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 368, in wrapper
+[2026-06-10T00:29:04.003+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-06-10T00:29:04.003+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.004+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 408, in wrapper
+[2026-06-10T00:29:04.004+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-06-10T00:29:04.004+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.005+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/main.py", line 593, in run
+[2026-06-10T00:29:04.005+0000] {subprocess.py:93} INFO -     results = task.run()
+[2026-06-10T00:29:04.005+0000] {subprocess.py:93} INFO -               ^^^^^^^^^^
+[2026-06-10T00:29:04.005+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/task/runnable.py", line 626, in run
+[2026-06-10T00:29:04.006+0000] {subprocess.py:93} INFO -     result = self.execute_with_hooks(selected_uids)
+[2026-06-10T00:29:04.006+0000] {subprocess.py:93} INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.006+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/task/runnable.py", line 559, in execute_with_hooks
+[2026-06-10T00:29:04.007+0000] {subprocess.py:93} INFO -     before_run_status = self.before_run(adapter, selected_uids)
+[2026-06-10T00:29:04.007+0000] {subprocess.py:93} INFO -                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.007+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/task/run.py", line 1114, in before_run
+[2026-06-10T00:29:04.007+0000] {subprocess.py:93} INFO -     self.create_schemas(adapter, required_schemas)
+[2026-06-10T00:29:04.007+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/task/runnable.py", line 734, in create_schemas
+[2026-06-10T00:29:04.008+0000] {subprocess.py:93} INFO -     existing_schemas_lowered.update(ls_future.result())
+[2026-06-10T00:29:04.008+0000] {subprocess.py:93} INFO -                                     ^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.008+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+[2026-06-10T00:29:04.008+0000] {subprocess.py:93} INFO -     return self.__get_result()
+[2026-06-10T00:29:04.009+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.009+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+[2026-06-10T00:29:04.009+0000] {subprocess.py:93} INFO -     raise self._exception
+[2026-06-10T00:29:04.010+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+[2026-06-10T00:29:04.010+0000] {subprocess.py:93} INFO -     result = self.fn(*self.args, **self.kwargs)
+[2026-06-10T00:29:04.010+0000] {subprocess.py:93} INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.010+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/utils/executor.py", line 16, in connected
+[2026-06-10T00:29:04.011+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-06-10T00:29:04.011+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.011+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/task/runnable.py", line 709, in list_schemas
+[2026-06-10T00:29:04.011+0000] {subprocess.py:93} INFO -     for s in adapter.list_schemas(database_quoted)
+[2026-06-10T00:29:04.012+0000] {subprocess.py:93} INFO -              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.012+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/sql/impl.py", line 219, in list_schemas
+[2026-06-10T00:29:04.012+0000] {subprocess.py:93} INFO -     results = self.execute_macro(LIST_SCHEMAS_MACRO_NAME, kwargs={"database": database})
+[2026-06-10T00:29:04.013+0000] {subprocess.py:93} INFO -               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.013+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/base/impl.py", line 1356, in execute_macro
+[2026-06-10T00:29:04.013+0000] {subprocess.py:93} INFO -     with self.connections.exception_handler(f"macro {macro_name}"):
+[2026-06-10T00:29:04.013+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.12/contextlib.py", line 158, in __exit__
+[2026-06-10T00:29:04.014+0000] {subprocess.py:93} INFO -     self.gen.throw(value)
+[2026-06-10T00:29:04.014+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/connections.py", line 102, in exception_handler
+[2026-06-10T00:29:04.015+0000] {subprocess.py:93} INFO -     self.rollback_if_open()
+[2026-06-10T00:29:04.015+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/base/connections.py", line 125, in rollback_if_open
+[2026-06-10T00:29:04.016+0000] {subprocess.py:93} INFO -     if conn is not None and conn.handle and conn.transaction_open:
+[2026-06-10T00:29:04.016+0000] {subprocess.py:93} INFO -                             ^^^^^^^^^^^
+[2026-06-10T00:29:04.016+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/contracts/connection.py", line 96, in handle
+[2026-06-10T00:29:04.017+0000] {subprocess.py:93} INFO -     self._handle.resolve(self)
+[2026-06-10T00:29:04.017+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/contracts/connection.py", line 120, in resolve
+[2026-06-10T00:29:04.017+0000] {subprocess.py:93} INFO -     return self.opener(connection)
+[2026-06-10T00:29:04.018+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.018+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/connections.py", line 53, in open
+[2026-06-10T00:29:04.018+0000] {subprocess.py:93} INFO -     connection.handle = cls._ENV.handle()
+[2026-06-10T00:29:04.019+0000] {subprocess.py:93} INFO -                         ^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.019+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/environments/local.py", line 75, in handle
+[2026-06-10T00:29:04.019+0000] {subprocess.py:93} INFO -     self.conn = self.initialize_db(self.creds, self._plugins)
+[2026-06-10T00:29:04.020+0000] {subprocess.py:93} INFO -                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.020+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/adapters/duckdb/environments/__init__.py", line 159, in initialize_db
+[2026-06-10T00:29:04.020+0000] {subprocess.py:93} INFO -     conn = duckdb.connect(creds.path, read_only=False, config=config)
+[2026-06-10T00:29:04.020+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-06-10T00:29:04.021+0000] {subprocess.py:93} INFO - _duckdb.IOException: IO Error: Could not set lock on file "/opt/***/data/warehouse.duckdb": Conflicting lock is held in /usr/local/bin/python3.12 (PID 824). See also https://duckdb.org/docs/stable/connect/concurrency
+[2026-06-10T00:29:04.021+0000] {subprocess.py:93} INFO - 
+[2026-06-10T00:29:04.815+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-06-10T00:29:04.816+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-10T00:29:04.825+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-06-10T00:29:04.831+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=end_to_end_pipeline, task_id=run_dbt_models, run_id=scheduled__2026-05-01T00:00:00+00:00, execution_date=20260501T000000, start_date=20260610T002901, end_date=20260610T002904
+[2026-06-10T00:29:04.846+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 15 for task run_dbt_models (Bash command failed. The command returned a non-zero exit code 2.; 826)
+[2026-06-10T00:29:04.877+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-06-10T00:29:04.889+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-10T00:29:04.892+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

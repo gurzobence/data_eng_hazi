@@ -1,0 +1,45 @@
+[2026-06-10T01:16:12.478+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-10T01:16:12.502+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: end_to_end_pipeline.run_dbt_models manual__2026-06-10T01:16:06.702536+00:00 [queued]>
+[2026-06-10T01:16:12.509+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: end_to_end_pipeline.run_dbt_models manual__2026-06-10T01:16:06.702536+00:00 [queued]>
+[2026-06-10T01:16:12.511+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-06-10T01:16:12.522+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_dbt_models> on 2026-06-10 01:16:06.702536+00:00
+[2026-06-10T01:16:12.529+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'end_to_end_pipeline', 'run_dbt_models', 'manual__2026-06-10T01:16:06.702536+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmpxjl1w4hw']
+[2026-06-10T01:16:12.532+0000] {standard_task_runner.py:91} INFO - Job 30: Subtask run_dbt_models
+[2026-06-10T01:16:12.531+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1592) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-10T01:16:12.532+0000] {standard_task_runner.py:63} INFO - Started process 1593 to run task
+[2026-06-10T01:16:12.589+0000] {task_command.py:426} INFO - Running <TaskInstance: end_to_end_pipeline.run_dbt_models manual__2026-06-10T01:16:06.702536+00:00 [running]> on host 42a5f442ff59
+[2026-06-10T01:16:12.666+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='end_to_end_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_models' AIRFLOW_CTX_EXECUTION_DATE='2026-06-10T01:16:06.702536+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-06-10T01:16:06.702536+00:00'
+[2026-06-10T01:16:12.668+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-10T01:16:12.678+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-10T01:16:12.680+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt && dbt run']
+[2026-06-10T01:16:12.690+0000] {subprocess.py:86} INFO - Output:
+[2026-06-10T01:16:15.315+0000] {subprocess.py:93} INFO - [0m01:16:15  Running with dbt=1.11.11
+[2026-06-10T01:16:15.776+0000] {subprocess.py:93} INFO - [0m01:16:15  Registered adapter: duckdb=1.10.1
+[2026-06-10T01:16:16.377+0000] {subprocess.py:93} INFO - [0m01:16:16  Found 6 models, 3 analyses, 485 macros
+[2026-06-10T01:16:16.381+0000] {subprocess.py:93} INFO - [0m01:16:16
+[2026-06-10T01:16:16.382+0000] {subprocess.py:93} INFO - [0m01:16:16  Concurrency: 1 threads (target='dev')
+[2026-06-10T01:16:16.383+0000] {subprocess.py:93} INFO - [0m01:16:16
+[2026-06-10T01:16:16.562+0000] {subprocess.py:93} INFO - [0m01:16:16  1 of 6 START sql table model main.stg_bikeshare ................................ [RUN]
+[2026-06-10T01:16:18.188+0000] {subprocess.py:93} INFO - [0m01:16:18  1 of 6 OK created sql table model main.stg_bikeshare ........................... [[32mOK[0m in 1.62s]
+[2026-06-10T01:16:18.191+0000] {subprocess.py:93} INFO - [0m01:16:18  2 of 6 START sql table model main.stg_weather .................................. [RUN]
+[2026-06-10T01:16:18.268+0000] {subprocess.py:93} INFO - [0m01:16:18  2 of 6 OK created sql table model main.stg_weather ............................. [[32mOK[0m in 0.07s]
+[2026-06-10T01:16:18.271+0000] {subprocess.py:93} INFO - [0m01:16:18  3 of 6 START sql table model main.dim_station .................................. [RUN]
+[2026-06-10T01:16:18.373+0000] {subprocess.py:93} INFO - [0m01:16:18  3 of 6 OK created sql table model main.dim_station ............................. [[32mOK[0m in 0.10s]
+[2026-06-10T01:16:18.376+0000] {subprocess.py:93} INFO - [0m01:16:18  4 of 6 START sql table model main.fact_rides ................................... [RUN]
+[2026-06-10T01:16:18.655+0000] {subprocess.py:93} INFO - [0m01:16:18  4 of 6 OK created sql table model main.fact_rides .............................. [[32mOK[0m in 0.28s]
+[2026-06-10T01:16:18.658+0000] {subprocess.py:93} INFO - [0m01:16:18  5 of 6 START sql table model main.dim_weather .................................. [RUN]
+[2026-06-10T01:16:18.730+0000] {subprocess.py:93} INFO - [0m01:16:18  5 of 6 OK created sql table model main.dim_weather ............................. [[32mOK[0m in 0.07s]
+[2026-06-10T01:16:18.733+0000] {subprocess.py:93} INFO - [0m01:16:18  6 of 6 START sql table model main.agg_daily_rides .............................. [RUN]
+[2026-06-10T01:16:18.821+0000] {subprocess.py:93} INFO - [0m01:16:18  6 of 6 OK created sql table model main.agg_daily_rides ......................... [[32mOK[0m in 0.09s]
+[2026-06-10T01:16:18.836+0000] {subprocess.py:93} INFO - [0m01:16:18
+[2026-06-10T01:16:18.837+0000] {subprocess.py:93} INFO - [0m01:16:18  Finished running 6 table models in 0 hours 0 minutes and 2.45 seconds (2.45s).
+[2026-06-10T01:16:18.901+0000] {subprocess.py:93} INFO - [0m01:16:18
+[2026-06-10T01:16:18.903+0000] {subprocess.py:93} INFO - [0m01:16:18  [32mCompleted successfully[0m
+[2026-06-10T01:16:18.904+0000] {subprocess.py:93} INFO - [0m01:16:18
+[2026-06-10T01:16:18.905+0000] {subprocess.py:93} INFO - [0m01:16:18  Done. PASS=6 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=6
+[2026-06-10T01:16:20.002+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-10T01:16:20.003+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-10T01:16:20.028+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=end_to_end_pipeline, task_id=run_dbt_models, run_id=manual__2026-06-10T01:16:06.702536+00:00, execution_date=20260610T011606, start_date=20260610T011612, end_date=20260610T011620
+[2026-06-10T01:16:20.053+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-06-10T01:16:20.069+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-10T01:16:20.073+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

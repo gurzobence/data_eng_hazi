@@ -1,0 +1,19 @@
+[2026-06-10T00:30:33.264+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-10T00:30:33.306+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: end_to_end_pipeline.fetch_open_meteo_data manual__2026-06-10T00:30:32.635241+00:00 [queued]>
+[2026-06-10T00:30:33.321+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: end_to_end_pipeline.fetch_open_meteo_data manual__2026-06-10T00:30:32.635241+00:00 [queued]>
+[2026-06-10T00:30:33.322+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-06-10T00:30:33.343+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_open_meteo_data> on 2026-06-10 00:30:32.635241+00:00
+[2026-06-10T00:30:33.359+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'end_to_end_pipeline', 'fetch_open_meteo_data', 'manual__2026-06-10T00:30:32.635241+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmp0yi4jll9']
+[2026-06-10T00:30:33.365+0000] {standard_task_runner.py:91} INFO - Job 16: Subtask fetch_open_meteo_data
+[2026-06-10T00:30:33.364+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=928) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-10T00:30:33.366+0000] {standard_task_runner.py:63} INFO - Started process 930 to run task
+[2026-06-10T00:30:33.434+0000] {task_command.py:426} INFO - Running <TaskInstance: end_to_end_pipeline.fetch_open_meteo_data manual__2026-06-10T00:30:32.635241+00:00 [running]> on host 42a5f442ff59
+[2026-06-10T00:30:33.533+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='end_to_end_pipeline' AIRFLOW_CTX_TASK_ID='fetch_open_meteo_data' AIRFLOW_CTX_EXECUTION_DATE='2026-06-10T00:30:32.635241+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-06-10T00:30:32.635241+00:00'
+[2026-06-10T00:30:33.533+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-10T00:30:33.544+0000] {logging_mixin.py:188} INFO - Időjárás adatok lekérése a 2026-05-01 - 2026-06-01 időszakra...
+[2026-06-10T00:30:33.780+0000] {logging_mixin.py:188} INFO - Sikeresen feltöltve: weather/weather_data_202605.json
+[2026-06-10T00:30:33.783+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-06-10T00:30:33.784+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-10T00:30:33.792+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=end_to_end_pipeline, task_id=fetch_open_meteo_data, run_id=manual__2026-06-10T00:30:32.635241+00:00, execution_date=20260610T003032, start_date=20260610T003033, end_date=20260610T003033
+[2026-06-10T00:30:33.821+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-06-10T00:30:33.830+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
