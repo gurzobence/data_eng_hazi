@@ -1,8 +1,7 @@
 # Városi közbringa-használat és időjárás korrelációjának elemzése 
 
 **Készítette:** Gurzó Bence  
-**Neptun-kód:** FO1YBI 
-**Opcionális Házi Feladat**
+**Neptun-kód:** FO1YBI
 
 ## A projekt bemutatása
 Ez a projekt egy teljes, end-to-end data engineering pipeline, amely egy városi közbringa-hálózat (Capital Bikeshare) utazási adatait veti össze lokális historikus időjárási adatokkal. A pipeline célja, hogy bemutassa, hogyan befolyásolja a hőmérséklet és a csapadék a bérlések számát és átlagos időtartamát. 
